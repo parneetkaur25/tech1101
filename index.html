@@ -1,0 +1,252 @@
+function tax(num){
+    let win;
+    let quick;
+    let zam;
+    let yolo;
+    
+        num = cat.value;
+        
+        
+        if(num<=48535) {
+        win = (num*15)/100;
+            yolo= win.toFixed(2);
+    return document.getElementById("x").textContent = "$" + yolo;
+    
+        }
+    
+    
+        else if (num>48535 && num<=97069) {
+                 win = num - 48535;
+         quick = (win*20.5)/100;
+              zam = quick + 7280;
+    yolo = zam.toFixed(2);
+        return document.getElementById("x").textContent = "$" + yolo;
+        }
+    
+    
+    
+        else if (num>97069 && num<=150473) {
+                win = num - 97069;
+        quick = (win*26)/100;
+                  zam = quick + 17230;
+    yolo = zam.toFixed(2);
+        return document.getElementById("x").textContent = "$" + yolo;
+        }
+    
+    
+    
+    
+        else if (num >150473 && num<=214368){
+            win = num - 150473;
+               quick =(win*29)/100;
+         zam = quick + 31115;
+            yolo = zam.toFixed(2);
+              return document.getElementById("x").textContent = "$" + yolo;
+        }
+    
+        else if (num>214368) {
+     win= num - 214368;
+          quick = (win*33)/100;
+              zam = quick + 49645;
+          yolo = zam.toFixed(2);
+              return  document.getElementById("x").textContent="$"+ yolo ;
+        }
+    
+        else {
+               return document.getElementById("x").textContent= null;                  
+        }
+    }
+    
+    
+    
+    
+    function taxRate(num) {
+    let dams
+    num = cat.value;
+    
+    
+    
+    if(num<=48535) {
+            dams =  "15" ;
+            return document.getElementById("y").textContent = dams;
+    }
+    
+    else if (num>48535 && num<=97069) {
+            dams = "20.5";
+            return document.getElementById("y").textContent = dams;
+        }
+    
+    else if (num>97069 && num<=150473) {
+            dams = "26"
+            return  document.getElementById("y").textContent =dams;
+    }
+    
+    else if (num >150473 && num<=214368){
+            dams = "29"
+            return document.getElementById("y").textContent= dams;
+    }
+    
+    else if (num>214368){
+            dams = "33"
+            return  document.getElementById("y").textContent =dams;
+    }
+    
+    else {
+    
+            return document.getElementById("y").textContent= null;   
+    }
+    
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function earning(num) {
+        let win;
+        let quick;
+        let zam;
+        let sam;                                                                                                              
+        let game;
+        
+        
+        num = cat.value;
+        
+         
+        if(num<=48535) {
+            win = (num*15)/100;
+            quick = num - win;
+            game = quick.toFixed(2);
+            return  document.getElementById("z").textContent = "$" +game ; 
+    
+        }
+    
+        
+        else if (num>48535 && num<=97069) {
+            win = num - 48535;
+            quick = (win*20.5)/100;
+             zam = quick + 7280;
+            sam = num - zam;
+            game = sam.toFixed(2);
+            return document.getElementById("z").textContent = "$" + game;
+    
+        }
+    
+        else if (num>97069 && num<=150473) {
+    
+            win = num - 97069;
+            quick = (win*26)/100;
+            zam = quick + 17230;
+            sam = num - zam;
+            game =sam.toFixed(2);
+            return   document.getElementById("z").textContent = "$" + game;
+        }
+    
+        else if (num >150473 && num<=214368){
+        win = num - 150473;
+            quick =(win*29)/100;
+        zam = quick + 31115;
+             sam = num - zam ;
+         game =sam.toFixed(2);
+            return  document.getElementById("z").textContent = "$" + game;
+        }
+    
+        else if (num>214368) {
+            win = num - 214368;
+            quick= (win*33)/100;
+            zam = quick + 49645;
+            sam = num - zam;
+            game = sam.toFixed(2);
+            return  document.getElementById("z").textContent = "$" + game;
+        }
+    
+    
+        else  {
+               
+            return document.getElementById("z").textContent=null;                        
+    
+    
+        }
+    }
+    
+    
+    
+    function eraser(num) {
+        num = cat.value;
+        if (num>=0 ){
+            return document.getElementById("non").textContent=null;                     
+        }
+        else  {
+    
+            return document.getElementById("non").textContent="Error: enter a number ";  
+        }   
+    }
+    
+    
+    
+    const cat = document.querySelector("#input");
+    const horse= document.querySelector("#x");
+    const rider = document.querySelector("#y");
+    const truck = document.querySelector("#z");
+    const caught =document.querySelector("#non");
+    function starter() {
+    
+          horse.value = tax();                
+    
+          rider.value = taxRate();       
+    
+          truck.value = earning();     
+          caught.value =eraser();                
+    
+    
+    
+    }
+    
+    function finish() {
+        cat.value = null;
+    
+        document.getElementById("x").textContent = null;         
+             
+        document.getElementById("y").textContent = null;
+        document.getElementById("z").textContent= null;
+    
+      
+        document.getElementById("non").textContent = null;
+    
+    
+    
+    }
+    
+    
+    const submit = document.querySelector("#a");
+    submit.addEventListener("click",starter);
+    const cleaner = document.querySelector("#b");
+    cleaner.addEventListener("click",finish);
+    -------------------------------------------------------------------------
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>tax calculator</title>
+    
+        </head>
+        <body>
+            <p><h1>Government Tax Calculator</h1></p>
+                <input type="text" id = "input"   name = "value">
+                <p>Tax owed:<span id = "x"></span></p>                                     
+                <p>Effective tax-rate:<span id = "y"></span></p>                           
+                <p>Retained Earnings:<span id  ="z"></span> </p>                         
+                <input type = "button" id = "a" value ="submit">                             
+                <input type = "button" id = "b"  value = "clear">                             
+                <div id ="non"> </div>  
+                
+                
+                <script src="./index.js"></script>                                            
+        </body>
+    </html>
+    
